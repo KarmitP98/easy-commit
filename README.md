@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="smart commit - a Claude skill" width="100%"/>
+<img src="assets/banner.svg" alt="easy commit - a Claude skill" width="100%"/>
 
-# smart commit
+# easy commit
 
 **Turn a messy working tree into a clean, reviewable git history. One phrase, zero ceremony.**
 
@@ -18,7 +18,7 @@
 
 ## What it does
 
-You type **`/smart-commit`**. Claude:
+You type **`/easy-commit`**. Claude:
 
 1. **Reads** every uncommitted change (staged, unstaged, untracked, renames, deletes, binaries).
 2. **Groups** them by *intent*, not by file. A bug fix and a new feature in the same file become two commits.
@@ -27,29 +27,29 @@ You type **`/smart-commit`**. Claude:
 
 No more `git add -A && git commit -m "stuff"`.
 
-<img src="assets/workflow.svg" alt="smart commit workflow" width="100%"/>
+<img src="assets/workflow.svg" alt="easy commit workflow" width="100%"/>
 
 ## Usage
 
 ```text
-/smart-commit [-p] [-pr] [-m] [target-branch]
+/easy-commit [-p] [-pr] [-m] [target-branch]
 ```
 
 | Command | What happens |
 |---|---|
-| `/smart-commit` | Group + commit. Nothing leaves your machine. |
-| `/smart-commit -p` | ...then push the branch (sets upstream if needed). |
-| `/smart-commit -pr` | ...then open a PR into `main` / `master` (auto-detected). |
-| `/smart-commit -pr develop` | ...PR into `develop` instead. The trailing word is the target branch. |
-| `/smart-commit -m` | ...push, open the PR, and **merge** it. |
-| `/smart-commit -m release` | ...merge into `release`. |
+| `/easy-commit` | Group + commit. Nothing leaves your machine. |
+| `/easy-commit -p` | ...then push the branch (sets upstream if needed). |
+| `/easy-commit -pr` | ...then open a PR into `main` / `master` (auto-detected). |
+| `/easy-commit -pr develop` | ...PR into `develop` instead. The trailing word is the target branch. |
+| `/easy-commit -m` | ...push, open the PR, and **merge** it. |
+| `/easy-commit -m release` | ...merge into `release`. |
 
 Flags stack: `-m` implies `-pr`, `-pr` implies `-p`.
 
 ## Before and after
 
 <table>
-<tr><th>Without</th><th>With <code>/smart-commit</code></th></tr>
+<tr><th>Without</th><th>With <code>/easy-commit</code></th></tr>
 <tr><td>
 
 ```text
@@ -73,7 +73,7 @@ f3a91c2  fix(calc): raise ValueError on division by zero
 
 ```mermaid
 flowchart TD
-    A([/smart-commit -flags]) --> B{Inside a git repo?}
+    A([/easy-commit -flags]) --> B{Inside a git repo?}
     B -- no --> X([Stop and say so])
     B -- yes --> C[Resolve target branch<br/>fetch if pushing]
     C --> D{Anything to commit?}
@@ -113,31 +113,31 @@ flowchart TD
 ### Option 1 - Claude Code plugin marketplace
 
 ```text
-/plugin marketplace add KarmitP98/smart-commit-skill
-/plugin install smart-commit@smart-commit-marketplace
+/plugin marketplace add KarmitP98/easy-commit
+/plugin install easy-commit@easy-commit-marketplace
 ```
 
 ### Option 2 - Drop in the skill folder
 
 ```powershell
 # Windows (PowerShell)
-git clone https://github.com/KarmitP98/smart-commit-skill.git
-Copy-Item -Recurse smart-commit-skill\skills\smart-commit $HOME\.claude\skills\
+git clone https://github.com/KarmitP98/easy-commit.git
+Copy-Item -Recurse easy-commit\skills\easy-commit $HOME\.claude\skills\
 ```
 
 ```bash
 # macOS / Linux
-git clone https://github.com/KarmitP98/smart-commit-skill.git
-cp -r smart-commit-skill/skills/smart-commit ~/.claude/skills/
+git clone https://github.com/KarmitP98/easy-commit.git
+cp -r easy-commit/skills/easy-commit ~/.claude/skills/
 ```
 
 ### Option 3 - Claude app
 
-Download `smart-commit.skill` from the [latest release](../../releases/latest) and click **Save skill**.
+Download `easy-commit.skill` from the [latest release](../../releases/latest) and click **Save skill**.
 
 ## Make Claude use it automatically
 
-Installing the skill makes `/smart-commit` available. To have Claude reach for it whenever you ask for a commit in plain language, add a short instruction to your `CLAUDE.md`. Claude Code reads this file at the start of every session.
+Installing the skill makes `/easy-commit` available. To have Claude reach for it whenever you ask for a commit in plain language, add a short instruction to your `CLAUDE.md`. Claude Code reads this file at the start of every session.
 
 | Scope | File | Applies to |
 |---|---|---|
@@ -149,17 +149,17 @@ Paste the following into the file you chose:
 ```markdown
 ## Git workflow
 
-Always use the `/smart-commit` skill for any git commit, push or pull request.
+Always use the `/easy-commit` skill for any git commit, push or pull request.
 Never run a bare `git commit` for these requests.
 
 | When I say...                                              | Run...                                  |
 |------------------------------------------------------------|-----------------------------------------|
-| "commit this", "commit my changes"                         | `/smart-commit`                         |
-| "commit and push", "push this"                             | `/smart-commit -p`                      |
-| "create a PR", "generate a PR", "open a PR"                | `/smart-commit -pr`                     |
-| "create a PR to <branch>", "generate a PR into <branch>"   | `/smart-commit -pr <branch>`            |
-| "commit and merge", "create a PR and merge it"             | `/smart-commit -m`                      |
-| "merge it into <branch>"                                   | `/smart-commit -m <branch>`             |
+| "commit this", "commit my changes"                         | `/easy-commit`                         |
+| "commit and push", "push this"                             | `/easy-commit -p`                      |
+| "create a PR", "generate a PR", "open a PR"                | `/easy-commit -pr`                     |
+| "create a PR to <branch>", "generate a PR into <branch>"   | `/easy-commit -pr <branch>`            |
+| "commit and merge", "create a PR and merge it"             | `/easy-commit -m`                      |
+| "merge it into <branch>"                                   | `/easy-commit -m <branch>`             |
 
 Only use `-m` when I explicitly ask to merge. If I do not name a target
 branch, let the skill default to `main` or `master`.
@@ -168,7 +168,7 @@ branch, let the skill default to `main` or `master`.
 How the mapping works:
 
 - **`-p`, `-pr` and `-m` build on each other.** `-m` implies `-pr`, and `-pr` implies `-p`, so you only ever need the highest flag for what you asked.
-- **The branch name always comes last.** `/smart-commit -pr develop` opens the PR into `develop`.
+- **The branch name always comes last.** `/easy-commit -pr develop` opens the PR into `develop`.
 - **Merging stays opt-in.** The last line of the snippet keeps `-m` reserved for requests that explicitly mention merging, because a merge is the one step that is hard to undo.
 
 Tip: adjust the trigger phrases to the way you actually talk. The table is a plain instruction to Claude, so any wording you add is honored.

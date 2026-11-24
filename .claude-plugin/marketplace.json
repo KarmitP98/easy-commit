@@ -1,9 +1,9 @@
 {
-  "name": "smart-commit-marketplace",
+  "name": "easy-commit-marketplace",
   "owner": { "name": "KarmitP98", "url": "https://github.com/KarmitP98" },
   "plugins": [
     {
-      "name": "smart-commit",
+      "name": "easy-commit",
       "source": "./",
       "description": "Group changes into logical commits, write proper messages, then push / PR / merge with one command.",
       "version": "1.0.0",

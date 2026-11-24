@@ -1,9 +1,9 @@
 ---
-name: smart-commit
-description: Smart commit - analyzes all uncommitted changes, splits them into logical chunks (by intent, not by file), commits each chunk with a proper commit message, and optionally pushes (-p), opens a PR (-pr), or merges it (-m). Invoked as "/smart-commit" (e.g. "/smart-commit -p", "/smart-commit -pr develop", "/smart-commit -m"); also use whenever the user writes "smart commit", or asks to commit current changes in logical groups, split a messy working tree into clean commits, or commit-push-PR-merge in one go, even if they don't say "smart".
+name: easy-commit
+description: Easy commit - analyzes all uncommitted changes, splits them into logical chunks (by intent, not by file), commits each chunk with a proper commit message, and optionally pushes (-p), opens a PR (-pr), or merges it (-m). Invoked as "/easy-commit" (e.g. "/easy-commit -p", "/easy-commit -pr develop", "/easy-commit -m"); also use whenever the user writes "easy commit", or asks to commit current changes in logical groups, split a messy working tree into clean commits, or commit-push-PR-merge in one go, even if they do not say "easy commit".
 ---
 
-# Smart Commit
+# Easy Commit
 
 Turn a messy working tree into a clean series of focused commits, then optionally push / open a PR / merge it. Each commit should be one logical change a reviewer can understand alone and revert alone. That is the whole point; every rule below serves it.
 
@@ -12,7 +12,7 @@ This skill is a self-contained, mechanical workflow. Do not interrogate the user
 ## Invocation
 
 ```
-/smart-commit [-p] [-pr] [-m] [target-branch]
+/easy-commit [-p] [-pr] [-m] [target-branch]
 ```
 
 | Flag | Effect |

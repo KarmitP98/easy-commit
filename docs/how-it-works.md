@@ -1,4 +1,4 @@
-# How smart commit works
+# How easy commit works
 
 ## The 8 steps
 
