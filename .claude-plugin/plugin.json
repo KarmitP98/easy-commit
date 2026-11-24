@@ -1,0 +1,10 @@
+{
+  "name": "smart-commit",
+  "description": "Splits a messy working tree into focused commits with proper messages, then optionally pushes (-p), opens a PR (-pr) and merges it (-m).",
+  "version": "1.0.0",
+  "author": { "name": "KarmitP98", "url": "https://github.com/KarmitP98" },
+  "homepage": "https://github.com/KarmitP98/smart-commit-skill",
+  "repository": "https://github.com/KarmitP98/smart-commit-skill",
+  "license": "MIT",
+  "keywords": ["git", "commit", "pull-request", "workflow", "conventional-commits"]
+}

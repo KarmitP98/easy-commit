@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="smart-commit workflow">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#64748b"/></marker>
+  </defs>
+  <style>
+    .t{font-family:Segoe UI,Helvetica,Arial,sans-serif;fill:#0f172a}
+    .s{font-size:14px;fill:#475569}
+    .h{font-size:20px;font-weight:700}
+    .box{stroke-width:2}
+  </style>
+  <rect width="1200" height="420" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
+  <rect class="box" x="30" y="60" width="220" height="300" rx="14" fill="#fee2e2" stroke="#ef4444"/>
+  <text class="t h" x="140" y="92" text-anchor="middle">Messy tree</text>
+  <g class="t s"><text x="48" y="130">M  calc.py (fix + feature)</text><text x="48" y="158">M  README.md</text><text x="48" y="186">M  package.json</text><text x="48" y="214">R  old.txt -&gt; new.txt</text><text x="48" y="242">?? test_mul.py</text><text x="48" y="270">?? logo.png</text><text x="48" y="298" fill="#b91c1c">?? .env (skipped)</text></g>
+  <path d="M252 210H292" stroke="#64748b" stroke-width="3" marker-end="url(#ar)"/>
+  <rect class="box" x="300" y="60" width="200" height="300" rx="14" fill="#e0f2fe" stroke="#0ea5e9"/>
+  <text class="t h" x="400" y="92" text-anchor="middle">Analyze</text>
+  <g class="t s"><text x="318" y="130">1. Preflight checks</text><text x="318" y="158">2. Safety screen</text><text x="318" y="186">3. Group by intent</text><text x="318" y="214">4. Split hunks if mixed</text><text x="318" y="242">5. Match repo style</text></g>
+  <path d="M502 210H542" stroke="#64748b" stroke-width="3" marker-end="url(#ar)"/>
+  <rect class="box" x="550" y="60" width="290" height="300" rx="14" fill="#dcfce7" stroke="#22c55e"/>
+  <text class="t h" x="695" y="92" text-anchor="middle">Focused commits</text>
+  <g class="t s"><text x="568" y="136">fix(calc): raise on div by zero</text><text x="568" y="174">feat(calc): add mul, test, docs</text><text x="568" y="212">chore: bump version to 1.1.0</text><text x="568" y="250">refactor: rename old.txt</text><text x="568" y="288">build: add logo asset</text></g>
+  <path d="M842 210H882" stroke="#64748b" stroke-width="3" marker-end="url(#ar)"/>
+  <rect class="box" x="890" y="60" width="280" height="300" rx="14" fill="#ede9fe" stroke="#8b5cf6"/>
+  <text class="t h" x="1030" y="92" text-anchor="middle">Ship (optional)</text>
+  <g class="t">
+    <rect x="908" y="118" width="244" height="44" rx="10" fill="#22d3ee"/><text x="1030" y="146" text-anchor="middle" font-size="15" font-weight="700">-p  push branch</text>
+    <rect x="908" y="180" width="244" height="44" rx="10" fill="#a78bfa"/><text x="1030" y="208" text-anchor="middle" font-size="15" font-weight="700">-pr  open PR into main/master</text>
+    <rect x="908" y="242" width="244" height="44" rx="10" fill="#f472b6"/><text x="1030" y="270" text-anchor="middle" font-size="15" font-weight="700">-m  merge the PR</text>
+    <text x="1030" y="326" text-anchor="middle" font-size="13" fill="#475569">trailing word = target branch</text>
+  </g>
+</svg>
