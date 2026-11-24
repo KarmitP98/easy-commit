@@ -1,6 +1,6 @@
 ---
 name: smart-commit
-description: Smart commit - analyzes all uncommitted changes, splits them into logical chunks (by intent, not by file), commits each chunk with a proper commit message, and optionally pushes (-p), opens a PR (-pr), or merges it (-m). Use whenever the user writes "smart commit", "/smart-commit", "smart commit -p", "smart commit -pr develop", "smart commit -m", or asks to commit current changes in logical groups, split a messy working tree into clean commits, or commit-push-PR-merge in one go, even if they don't say "smart".
+description: Smart commit - analyzes all uncommitted changes, splits them into logical chunks (by intent, not by file), commits each chunk with a proper commit message, and optionally pushes (-p), opens a PR (-pr), or merges it (-m). Invoked as "/smart-commit" (e.g. "/smart-commit -p", "/smart-commit -pr develop", "/smart-commit -m"); also use whenever the user writes "smart commit", or asks to commit current changes in logical groups, split a messy working tree into clean commits, or commit-push-PR-merge in one go, even if they don't say "smart".
 ---
 
 # Smart Commit
@@ -12,7 +12,7 @@ This skill is a self-contained, mechanical workflow. Do not interrogate the user
 ## Invocation
 
 ```
-smart commit [-p] [-pr] [-m] [target-branch]
+/smart-commit [-p] [-pr] [-m] [target-branch]
 ```
 
 | Flag | Effect |

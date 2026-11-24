@@ -18,7 +18,7 @@
 
 ## What it does
 
-You say **`smart commit`**. Claude:
+You type **`/smart-commit`**. Claude:
 
 1. **Reads** every uncommitted change (staged, unstaged, untracked, renames, deletes, binaries).
 2. **Groups** them by *intent*, not by file. A bug fix and a new feature in the same file become two commits.
@@ -32,24 +32,24 @@ No more `git add -A && git commit -m "stuff"`.
 ## Usage
 
 ```text
-smart commit [-p] [-pr] [-m] [target-branch]
+/smart-commit [-p] [-pr] [-m] [target-branch]
 ```
 
 | Command | What happens |
 |---|---|
-| `smart commit` | Group + commit. Nothing leaves your machine. |
-| `smart commit -p` | ...then push the branch (sets upstream if needed). |
-| `smart commit -pr` | ...then open a PR into `main` / `master` (auto-detected). |
-| `smart commit -pr develop` | ...PR into `develop` instead. The trailing word is the target branch. |
-| `smart commit -m` | ...push, open the PR, and **merge** it. |
-| `smart commit -m release` | ...merge into `release`. |
+| `/smart-commit` | Group + commit. Nothing leaves your machine. |
+| `/smart-commit -p` | ...then push the branch (sets upstream if needed). |
+| `/smart-commit -pr` | ...then open a PR into `main` / `master` (auto-detected). |
+| `/smart-commit -pr develop` | ...PR into `develop` instead. The trailing word is the target branch. |
+| `/smart-commit -m` | ...push, open the PR, and **merge** it. |
+| `/smart-commit -m release` | ...merge into `release`. |
 
 Flags stack: `-m` implies `-pr`, `-pr` implies `-p`.
 
 ## Before and after
 
 <table>
-<tr><th>Without</th><th>With <code>smart commit</code></th></tr>
+<tr><th>Without</th><th>With <code>/smart-commit</code></th></tr>
 <tr><td>
 
 ```text
@@ -73,7 +73,7 @@ f3a91c2  fix(calc): raise ValueError on division by zero
 
 ```mermaid
 flowchart TD
-    A([smart commit -flags]) --> B{Inside a git repo?}
+    A([/smart-commit -flags]) --> B{Inside a git repo?}
     B -- no --> X([Stop and say so])
     B -- yes --> C[Resolve target branch<br/>fetch if pushing]
     C --> D{Anything to commit?}
